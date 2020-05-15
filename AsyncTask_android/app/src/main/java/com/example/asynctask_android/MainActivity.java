@@ -2,6 +2,7 @@ package com.example.asynctask_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnXyLy ;
+    Button btnXyLy ,btnGoto;
     TextView txtThongTin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,14 +18,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnXyLy= (Button) findViewById(R.id.btnXuLy);
         txtThongTin=(TextView) findViewById(R.id.txtThongTin);
+        btnGoto=(Button) findViewById(R.id.btnGoto);
         btnXyLy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                  new CongViec().execute();
             }
         });
+        btnGoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doOpenDownloadActivity();
+            }
+        });
 
     }
+    public void doOpenDownloadActivity(){
+        Intent intent=new Intent(MainActivity.this,DownloadActivity.class);
+        intent.putExtra("Key_1", "Truyền một String");  // Truyền một String
+        intent.putExtra("Key_2", 5);                    // Truyền một Int
+        intent.putExtra("Key_3", true);                 // Truyền một Boolean
+        MainActivity.this.startActivity(intent);
+    }
+  //  asyncTask cơ bản
     private class CongViec extends AsyncTask<Void,String,String>{
 
         //hàm trước khi xử lý
@@ -66,4 +82,6 @@ public class MainActivity extends AppCompatActivity {
             txtThongTin.append(values[0]);
         }
     }
+
+
 }
