@@ -45,9 +45,13 @@ public class DownloadActivity extends AppCompatActivity {
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String filename =txtLink.getText().toString();
-                double fileSize= new Random().nextDouble();
-                DownloadFile downloadFile=new DownloadFile(filename,fileSize,1,0);
+                Double fileSize= new Random().nextDouble();
+//                Random generator = new Random();
+//                int status=generator.nextInt(3)+1;
+                int status=1;
+                DownloadFile downloadFile=new DownloadFile(filename,fileSize,status,0);
                 data.add(downloadFile);
                 apdater.notifyDataSetChanged();
 
@@ -58,12 +62,12 @@ public class DownloadActivity extends AppCompatActivity {
         });
         apdater= new ArrayAdapter<DownloadFile>(
                 DownloadActivity.this,
-                R.drawable.list_item,
+                R.layout.list_item,
                 R.id.lblFileName,
                 data
         ){
             @Override
-            public View getView(int position,View convertView,ViewGroup parent) {
+            public View getView(int position, View convertView, ViewGroup parent) {
                 View itemView = super.getView(position,convertView,parent);
 
                 DownloadFile downloadFile=data.get(position);
@@ -72,10 +76,10 @@ public class DownloadActivity extends AppCompatActivity {
                 TextView lblFileSize = itemView.findViewById(R.id.lblFileSize);
                 TextView lblStatus = itemView.findViewById(R.id.lblStatus);
                 ProgressBar progressBar=itemView.findViewById(R.id.progressBar);
-                ImageView imageView=itemView.findViewById(R.id.imageView2);
+                ImageView imageView=itemView.findViewById(R.id.imageView);
 
                 lblFileName.setText(downloadFile.getFilename());
-                lblFileSize.setText(downloadFile.getSize()+" MB");
+                lblFileSize.setText((double) Math.ceil(downloadFile.getSize() * 1000) / 1000+" MB");
                 imageView.setImageResource(downloadFile.getImageResourceId());
 
                 if(downloadFile.getStatus()==1){
@@ -87,8 +91,8 @@ public class DownloadActivity extends AppCompatActivity {
                     lblStatus.setVisibility(View.VISIBLE);
                     progressBar.setVisibility(View.INVISIBLE);
 
-                   lblStatus.setText("Fail");
-                   lblStatus.setTextColor(Color.CYAN);
+                    lblStatus.setText("Fail");
+                    lblStatus.setTextColor(Color.CYAN);
 
                 }else {
                     lblStatus.setVisibility(View.VISIBLE);
@@ -98,7 +102,7 @@ public class DownloadActivity extends AppCompatActivity {
                     lblStatus.setTextColor(Color.GREEN);
                 }
 
-                return imageView;
+                return itemView;
             }
         };
 
@@ -111,34 +115,44 @@ public class DownloadActivity extends AppCompatActivity {
         data.add(new DownloadFile("avatar.png",2.5,3,100));
     }
 
-    private class DownloadTask extends AsyncTask<DownloadFile ,DownloadFile,DownloadFile>{
 
+
+    private class DownloadTask extends AsyncTask<DownloadFile ,DownloadFile,DownloadFile> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
 
         @Override
         protected DownloadFile doInBackground(DownloadFile... downloadFiles) {
-          DownloadFile downloadFile=downloadFiles[0];
-          double downloadedSize=0;
-          while(downloadedSize <downloadFile.getSize()){
-              try {
-                  Thread.sleep(1000);
-                  downloadedSize +=0.1;
-                  int currentProgress= (int)(100 * downloadedSize/downloadFile.getSize());
-                  downloadFile.setProgress(currentProgress);
+            DownloadFile downloadFile=downloadFiles[0];
+            double downloadedSize=0;
+            while(downloadedSize <downloadFile.getSize()){
+                try {
+                    Thread.sleep(500);
+                    downloadedSize +=0.05;
+                    int currentProgress= (int)(100 * downloadedSize/downloadFile.getSize());
+                    downloadFile.setProgress(currentProgress);
 
-                  publishProgress(downloadFile);
-              } catch (InterruptedException e) {
-                  downloadFile.setStatus(2);
-                  e.printStackTrace();
-              }
-          }
-          downloadFile.setStatus(3);
-          return downloadFile;
+                    publishProgress(downloadFile);
+                } catch (InterruptedException e) {
+                    downloadFile.setStatus(2);
+                    e.printStackTrace();
+                }
+            }
+            downloadFile.setStatus(3);
+            return downloadFile;
         }
 
         @Override
         protected void onProgressUpdate(DownloadFile... values) {
             apdater.notifyDataSetChanged();
+
+        }
+
+        @Override
+        protected void onPostExecute(DownloadFile downloadFile) {
+            super.onPostExecute(downloadFile);
         }
     }
-
 }

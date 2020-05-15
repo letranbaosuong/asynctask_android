@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DownloadActivity">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,9 +20,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="32dp"
-            android:layout_weight="1"
             android:ems="10"
-            android:hint="Link"
             android:inputType="textPersonName"
             android:textSize="14sp" />
 
@@ -34,7 +32,6 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="26dp"
             android:layout_marginRight="10dp"
-            android:layout_weight="0.5"
             android:paddingLeft="10dp"
             android:text="Download" />
     </LinearLayout>
