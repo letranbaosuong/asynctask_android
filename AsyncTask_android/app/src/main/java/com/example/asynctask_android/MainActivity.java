@@ -10,12 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
     Button btnXyLy ,btnGoto;
     TextView txtThongTin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    /*
         btnXyLy= (Button) findViewById(R.id.btnXuLy);
         txtThongTin=(TextView) findViewById(R.id.txtThongTin);
         btnGoto=(Button) findViewById(R.id.btnGoto);
@@ -31,26 +31,47 @@ public class MainActivity extends AppCompatActivity {
                 doOpenDownloadActivity();
             }
         });
-
+      */
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+      new myTask().execute("day la chuoi String chuyen vao");
     }
-    public void doOpenDownloadActivity(){
+    private class myTask extends  AsyncTask<String,Integer,String>{
+      @Override
+      protected void onPreExecute() {
+          super.onPreExecute();
+      }
+      @Override
+      protected String doInBackground(String... params) {
+          String string=params[0];
+          int i=0;
+          publishProgress(i);
+          return "tra ve cai gi do";
+      }
+      @Override
+      protected void onProgressUpdate(Integer... values) { }
+      @Override
+      protected void onPostExecute(String ketQuaTraVe) {
+          super.onPostExecute(ketQuaTraVe);
+      }
+  }
+
+
+
+    //  asyncTask cơ bản
+  public void doOpenDownloadActivity(){
         Intent intent=new Intent(MainActivity.this,DownloadActivity.class);
         intent.putExtra("Key_1", "Truyền một String");  // Truyền một String
         intent.putExtra("Key_2", 5);                    // Truyền một Int
         intent.putExtra("Key_3", true);                 // Truyền một Boolean
         MainActivity.this.startActivity(intent);
     }
-  //  asyncTask cơ bản
     private class CongViec extends AsyncTask<Void,String,String>{
-
-        //hàm trước khi xử lý
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             txtThongTin.setText("bắt đầu nha!!. "+"\n");
         }
-
-        //hàm chính bắt buộc phải có
         @Override
         protected String doInBackground(Void... voids) {
 
@@ -82,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
             txtThongTin.append(values[0]);
         }
     }
+
+
 
 
 }
