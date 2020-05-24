@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            txtThongTin.setText("bắt đầu nha!!. "+"\n");
+            txtThongTin.setText("Bắt đầu nha!!! "+"\n");
         }
         @Override
         protected String doInBackground(Void... voids) {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
               //  //methods must be call user interface Thread not here
             // txtThongTin.setText("xong việc "+i);
             }
-            return "xong rồi nha!!";
+            return "Xong rồi nha!!!";
         }
 
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            txtThongTin.append("xog việc "+values[0].toString()+"\n");
+            txtThongTin.append("Xong việc "+values[0].toString()+"\n");
             int currentProgress= (int)(100 * values[0]/5);
             prb.setProgress(currentProgress);
         }
