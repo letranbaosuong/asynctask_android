@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         btnGoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                doOpenDownloadActivity();
             }
         });
         prb.setVisibility(View.VISIBLE);
@@ -49,5 +50,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         txtThongTin.append("Xong rồi nha!\n");
+    }
+
+    private void doOpenDownloadActivity(){
+        Intent intent=new Intent(MainActivity.this,DownloadActivity.class);
+        intent.putExtra("Key_1", "Truyền một String");  // Truyền một String
+        intent.putExtra("Key_2", 5);                    // Truyền một Int
+        intent.putExtra("Key_3", true);                 // Truyền một Boolean
+        MainActivity.this.startActivity(intent);
     }
 }

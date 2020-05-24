@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     //  asyncTask cơ bản
-  public void doOpenDownloadActivity(){
+    private void doOpenDownloadActivity(){
         Intent intent=new Intent(MainActivity.this,DownloadActivity.class);
         intent.putExtra("Key_1", "Truyền một String");  // Truyền một String
         intent.putExtra("Key_2", 5);                    // Truyền một Int
