@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            txtThongTin.setText("Bắt đầu nha!!! "+"\n");
+            txtThongTin.setText("Bắt đầu nha!\n");
         }
         @Override
         protected String doInBackground(Void... voids) {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
               //  //methods must be call user interface Thread not here
             // txtThongTin.setText("xong việc "+i);
             }
-            return "Xong rồi nha!!!"+"\n";
+            return "Xong rồi nha!\n";
         }
 
 

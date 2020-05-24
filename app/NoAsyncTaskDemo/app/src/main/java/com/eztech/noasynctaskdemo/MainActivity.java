@@ -32,13 +32,12 @@ public class MainActivity extends AppCompatActivity {
         btnGoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             }
         });
         prb.setVisibility(View.VISIBLE);
     }
     private void CongViec() {
-        txtThongTin.setText("Bắt đầu nha!!! "+"\n");
+        txtThongTin.setText("Bắt đầu nha! \n");
         for(int i =1 ; i<= 5 ;i++){
             try {
                 Thread.sleep(1000);
@@ -49,6 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        txtThongTin.append("Xong rồi nha!!!"+"\n");
+        txtThongTin.append("Xong rồi nha!\n");
     }
 }
