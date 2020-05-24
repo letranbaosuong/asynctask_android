@@ -2,6 +2,7 @@ package com.example.asynctask_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -50,26 +51,25 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            prb.setProgress(0);
             txtThongTin.setText("Bắt đầu nha!\n");
         }
+        @SuppressLint("WrongThread")
         @Override
         protected String doInBackground(Void... voids) {
             for(int i =1 ; i<= 5 ;i++){
                 try {
                     Thread.sleep(1000);
                     int currentProgress= (int)(100 * i/5);
-
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 publishProgress(i);
-
               //  //methods must be call user interface Thread not here
             // txtThongTin.setText("xong việc "+i);
             }
             return "Xong rồi nha!\n";
         }
-
 
         //sau khi nó xử lý xong
         @Override

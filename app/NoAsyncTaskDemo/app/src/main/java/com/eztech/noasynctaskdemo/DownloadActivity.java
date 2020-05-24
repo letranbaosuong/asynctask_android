@@ -2,6 +2,7 @@ package com.eztech.noasynctaskdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -38,13 +39,14 @@ public class DownloadActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String filename =txtLink.getText().toString();
-                Double fileSize= new Random().nextDouble();
+                double fileSize= new Random().nextDouble();
 //                Random generator = new Random();
 //                int status=generator.nextInt(3)+1;
                 int status=1;
                 DownloadFile downloadFile = new DownloadFile(filename,fileSize,status,0);
                 data.add(downloadFile);
                 apdater.notifyDataSetChanged();
+                txtLink.setText("");
                 DownloadTask(downloadFile);
             }
         });
@@ -54,10 +56,10 @@ public class DownloadActivity extends AppCompatActivity {
                 R.id.lblFileName,
                 data
         ){
+            @SuppressLint("SetTextI18n")
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View itemView = super.getView(position,convertView,parent);
-
                 DownloadFile downloadFile=data.get(position);
 
                 TextView lblFileName = itemView.findViewById(R.id.lblFileName);

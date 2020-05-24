@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         prb.setVisibility(View.VISIBLE);
     }
     private void CongViec() {
+        prb.setProgress(0);
         txtThongTin.setText("Bắt đầu nha! \n");
         for(int i =1 ; i<= 5 ;i++){
             try {

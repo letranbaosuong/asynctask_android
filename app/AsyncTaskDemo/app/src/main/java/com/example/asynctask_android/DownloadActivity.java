@@ -2,6 +2,7 @@ package com.example.asynctask_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -43,16 +44,15 @@ public class DownloadActivity extends AppCompatActivity {
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String filename =txtLink.getText().toString();
-                Double fileSize= new Random().nextDouble();
+                double fileSize= new Random().nextDouble();
 //                Random generator = new Random();
 //                int status=generator.nextInt(3)+1;
                 int status=1;
                 DownloadFile downloadFile=new DownloadFile(filename,fileSize,status,0);
                 data.add(downloadFile);
                 apdater.notifyDataSetChanged();
-
+                txtLink.setText("");
                 DownloadTask task= new DownloadTask();
                 task.execute(downloadFile);
 
@@ -64,6 +64,7 @@ public class DownloadActivity extends AppCompatActivity {
                 R.id.lblFileName,
                 data
         ){
+            @SuppressLint("SetTextI18n")
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View itemView = super.getView(position,convertView,parent);
@@ -115,6 +116,7 @@ public class DownloadActivity extends AppCompatActivity {
 
 
 
+    @SuppressLint("StaticFieldLeak")
     private class DownloadTask extends AsyncTask<DownloadFile ,DownloadFile,DownloadFile> {
         @Override
         protected void onPreExecute() {
