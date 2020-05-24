@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AsyncTask Demo</string>
+    <string name="app_name">No AsyncTask Demo</string>
     <string name="xu_ly">Xử lý</string>
     <string name="go_to_link_download">Go To Link Download</string>
 </resources>

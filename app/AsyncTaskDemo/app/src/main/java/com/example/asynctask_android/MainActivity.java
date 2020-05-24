@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
               //  //methods must be call user interface Thread not here
             // txtThongTin.setText("xong việc "+i);
             }
-            return "Xong rồi nha!!!";
+            return "Xong rồi nha!!!"+"\n";
         }
 
 
