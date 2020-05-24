@@ -19,24 +19,25 @@
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="32dp"
             android:ems="10"
             android:textColor="@color/white"
             android:inputType="textPersonName"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
 
         <Button
             android:id="@+id/btnDownload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginTop="26dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:background="@color/colorPrimaryDark"
-            android:paddingLeft="10dp"
-            android:text="Download" />
+            android:paddingStart="10dp"
+            android:text="@string/download"
+            tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
     <ListView

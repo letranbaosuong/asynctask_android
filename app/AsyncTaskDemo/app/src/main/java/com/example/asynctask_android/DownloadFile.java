@@ -8,30 +8,30 @@ public class DownloadFile {
     private double size;
     private int status;
     private int progress;
-    public DownloadFile(String filename,double size, int status, int progress){
+    DownloadFile(String filename, double size, int status, int progress){
         this.filename=filename;
         this.size=size;
         this.status=status;
         this.progress=progress;
     }
 
-    public String getFilename() {return filename; }
+    String getFilename() {return filename; }
 
     public void setFilename(String filename) {this.filename = filename;}
 
-    public double getSize() { return size; }
+    double getSize() { return size; }
 
     public void setSize(double size) { this.size = size; }
 
-    public int getStatus() {  return status;}
+    int getStatus() {  return status;}
 
-    public void setStatus(int status) { this.status = status;}
+    void setStatus(int status) { this.status = status;}
 
-    public int getProgress() {  return progress;}
+    int getProgress() {  return progress;}
 
-    public void setProgress(int progress) { this.progress = progress;}
+    void setProgress(int progress) { this.progress = progress;}
 
-    public int getImageResourceId(){
+    int getImageResourceId(){
         int resId= R.drawable.icon_other;
         String ext=filename.substring(filename.lastIndexOf(".")+1);
         switch(ext){
@@ -59,7 +59,6 @@ public class DownloadFile {
                 resId=R.drawable.icon_zip;
                 break;
             }
-
         }
         return resId;
     }
