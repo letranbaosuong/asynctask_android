@@ -7,12 +7,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnXyLy ,btnGoto;
     TextView txtThongTin;
+    ProgressBar prb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         btnXyLy= (Button) findViewById(R.id.btnXuLy);
         txtThongTin=(TextView) findViewById(R.id.txtThongTin);
         btnGoto=(Button) findViewById(R.id.btnGoto);
+        prb=(ProgressBar) findViewById(R.id.pb);
         btnXyLy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 doOpenDownloadActivity();
             }
         });
+        prb.setVisibility(View.VISIBLE);
 
     }
     //  asyncTask cơ bản
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("Key_3", true);                 // Truyền một Boolean
         MainActivity.this.startActivity(intent);
     }
-    private class CongViec extends AsyncTask<Void,String,String>{
+    private class CongViec extends AsyncTask<Void,Integer,String>{
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -50,13 +54,15 @@ public class MainActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(Void... voids) {
-            for(int i =1 ; i<= 5 ;i ++){
+            for(int i =1 ; i<= 5 ;i++){
                 try {
                     Thread.sleep(1000);
+                    int currentProgress= (int)(100 * i/5);
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                publishProgress("Xong việc  " +i+"\n");
+                publishProgress(i);
 
               //  //methods must be call user interface Thread not here
             // txtThongTin.setText("xong việc "+i);
@@ -73,9 +79,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onProgressUpdate(String... values) {
+        protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            txtThongTin.append(values[0]);
+            txtThongTin.append("xog việc "+values[0].toString()+"\n");
+            int currentProgress= (int)(100 * values[0]/5);
+            prb.setProgress(currentProgress);
         }
     }
 

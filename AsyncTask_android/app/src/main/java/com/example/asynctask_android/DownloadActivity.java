@@ -1,7 +1,5 @@
 package com.example.asynctask_android;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
@@ -76,7 +74,7 @@ public class DownloadActivity extends AppCompatActivity {
                 TextView lblFileSize = itemView.findViewById(R.id.lblFileSize);
                 TextView lblStatus = itemView.findViewById(R.id.lblStatus);
                 ProgressBar progressBar=itemView.findViewById(R.id.progressBar);
-                ImageView imageView=itemView.findViewById(R.id.imageView);
+                ImageView imageView=itemView.findViewById(R.id.img1);
 
                 lblFileName.setText(downloadFile.getFilename());
                 lblFileSize.setText((double) Math.ceil(downloadFile.getSize() * 1000) / 1000+" MB");
