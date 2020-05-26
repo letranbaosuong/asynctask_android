@@ -26,8 +26,6 @@ public class DownloadActivity extends AppCompatActivity {
     ListView listView;
     EditText txtLink;
     Button btnDownload;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,9 +66,7 @@ public class DownloadActivity extends AppCompatActivity {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View itemView = super.getView(position,convertView,parent);
-
                 DownloadFile downloadFile=data.get(position);
-
                 TextView lblFileName = itemView.findViewById(R.id.lblFileName);
                 TextView lblFileSize = itemView.findViewById(R.id.lblFileSize);
                 TextView lblStatus = itemView.findViewById(R.id.lblStatus);
