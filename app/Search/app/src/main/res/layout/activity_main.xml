@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txtNhap"
+        android:layout_width="347dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <ImageButton
+        android:id="@+id/imgBtnSearch"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/search"
+        android:onClick="btnSearch_Clicked"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toEndOf="@+id/txtNhap"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_search"
+        tools:ignore="MissingConstraints,OnClick" />
+
+    <ListView
+        android:id="@+id/listViewSearch"
+        android:layout_width="346dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNhap" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
