@@ -46,7 +46,7 @@ public class AdapterRooms extends BaseAdapter {
         //Bind sữ liệu phần tử vào View
         Rooms rooms = (Rooms) getItem(position);
         ((TextView) viewRooms.findViewById(R.id.name)).setText(rooms.getName());
-        ((TextView) viewRooms.findViewById(R.id.addess)).setText(rooms.getAddress());
+        ((TextView) viewRooms.findViewById(R.id.address)).setText(rooms.getAddress());
 
         viewRooms.findViewById(R.id.imageView).setBackgroundResource(rooms.getImageResource());
         return viewRooms;

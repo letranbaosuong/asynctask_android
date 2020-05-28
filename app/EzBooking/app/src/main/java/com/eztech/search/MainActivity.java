@@ -58,6 +58,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        listAdd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(MainActivity.this, "You Clicked at " + id, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, BookingActivity.class);
+                intent.putExtra("key_id", "" + id);
+                startActivity(intent);
+            }
+        });
     }
 
     public void btnSearch_Clicked(View view) {
