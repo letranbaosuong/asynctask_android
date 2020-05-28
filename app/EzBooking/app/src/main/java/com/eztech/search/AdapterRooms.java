@@ -14,7 +14,6 @@ public class AdapterRooms extends BaseAdapter {
     AdapterRooms(ArrayList<Rooms> listRooms) {
         this.listRooms = listRooms;
     }
-
     @Override
     public int getCount() {
         return listRooms.size();

@@ -3,11 +3,13 @@ package com.eztech.search;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
@@ -18,7 +20,7 @@ import java.text.Normalizer;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Rooms> listRooms, listSearch;
+    public static ArrayList<Rooms> listRooms, listSearch;
     AdapterRooms adapterRooms;
     AdapterGridViewRooms adapterGridViewRooms;
     ListView listAdd;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         gridViewRoom = findViewById(R.id.gridViewRoom);
         adapterGridViewRooms = new AdapterGridViewRooms(listRooms);;
         gridViewRoom.setAdapter(adapterGridViewRooms);
+
         txtNhap.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -46,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
 
+        gridViewRoom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(MainActivity.this, "You Clicked at " + id, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, BookingActivity.class);
+                intent.putExtra("key_id", "" + id);
+                startActivity(intent);
+            }
+        });
     }
 
     public void btnSearch_Clicked(View view) {
@@ -137,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
         String uri = "@drawable/room_1";
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         listRooms.add(new Rooms(1, "Gulf Stream Cottages", "4101 Mayfair Street, Myrtle Beach, SC 29577, Mỹ", imageResource));
-
         uri = "@drawable/room_2";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
         listRooms.add(new Rooms(2, "ARory Hotel", "167 Đường 3/2 ,Phường 4 ,Đà Lạt, Việt Nam", imageResource));
