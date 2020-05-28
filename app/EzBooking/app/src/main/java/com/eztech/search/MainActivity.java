@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
         uri = "@drawable/room_10";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(10, "City Seasons Towers ", "Khalifa Bin Zayed Road, Mankhool, Dubai Next to Burjuman Mall , P.O.Box- 5847, Bur Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất", imageResource));
+        listRooms.add(new Rooms(10, "City Seasons Towers ", "Khalifa Bin Zayed Road, Mankhool, Dubai Next to Burjuman Mall , P.O.Box- 5847, Bur Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource));
 
         uri = "@drawable/room_11";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
