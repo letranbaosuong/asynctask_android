@@ -49,9 +49,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnSearch_Clicked(View view) {
-        new SearchAddress().execute(txtNhap.getText().toString());
+        new SearchRooms().execute(txtNhap.getText().toString());
     }
 
+    //SEARCH ADDRESS
     @SuppressLint("StaticFieldLeak")
     private class SearchAddress extends AsyncTask<String, String, String>{
         @Override
@@ -82,6 +83,46 @@ public class MainActivity extends AppCompatActivity {
             }
             adapterRooms = new AdapterRooms(listSearch);
             listAdd.setAdapter(adapterRooms);
+        }
+    }
+
+    //SEARCH ROOMS
+    @SuppressLint("StaticFieldLeak")
+    private class SearchRooms extends AsyncTask<String, String, String>{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            publishProgress(strings[0]);
+            return strings[0];
+        }
+
+        @Override
+        protected void onProgressUpdate(String... strings) {
+            if(txtNhap.getText().toString().equals("")) {
+                adapterGridViewRooms = new AdapterGridViewRooms(listRooms);
+                gridViewRoom.setAdapter(adapterGridViewRooms);
+            } else {
+                listSearch = new ArrayList<>();
+                if(txtNhap.getText().toString().matches("^(\\s|\\S)*(\\S)+(\\s|\\S)*$")) {
+                    for (int i = 0; i < listRooms.size(); i++) {
+                        Rooms r = listRooms.get(i);
+                        String name = removeAccent(r.getName().toLowerCase());
+                        String address = removeAccent(r.getAddress().toLowerCase());
+                        String string = removeAccent(strings[0].toLowerCase());
+//                    Toast.makeText(MainActivity.this,
+//                            name+"  //  "+ address + "  //  "+string, Toast.LENGTH_SHORT).show();
+                        if (name.contains(string) || address.contains(string))
+                            listSearch.add(r);
+                    }
+                }
+                adapterGridViewRooms = new AdapterGridViewRooms(listSearch);
+                gridViewRoom.setAdapter(adapterGridViewRooms);
+                txtNhap.setText("");
+            }
         }
     }
 
