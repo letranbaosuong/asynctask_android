@@ -19,6 +19,7 @@
         android:orientation="vertical"
         android:padding="10dp">
         <TextView
+            android:fontFamily="@font/quicksand_bold"
             android:textAlignment="center"
             android:id="@+id/name"
             android:layout_width="180dp"

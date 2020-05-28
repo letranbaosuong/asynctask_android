@@ -48,7 +48,7 @@ public class AdapterRooms extends BaseAdapter {
         ((TextView) viewRooms.findViewById(R.id.name)).setText(rooms.getName());
         ((TextView) viewRooms.findViewById(R.id.address)).setText(rooms.getAddress());
 
-        viewRooms.findViewById(R.id.imageView).setBackgroundResource(rooms.getImageResource());
+        viewRooms.findViewById(R.id.imageView).setBackgroundResource(rooms.getImageCircleResource());
         return viewRooms;
     }
 }

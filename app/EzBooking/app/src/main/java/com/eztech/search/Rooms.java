@@ -5,11 +5,13 @@ class Rooms {
     private String name;
     private String address;
     private int imageResource;
-    public Rooms(int id, String name, String address, int imageResource) {
+    private int imageCircleResource;
+    public Rooms(int id, String name, String address, int imageResource,  int imageCircleResource) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.imageResource = imageResource;
+        this.imageCircleResource = imageCircleResource;
     }
     public String getName() {
         return name;
@@ -25,5 +27,9 @@ class Rooms {
 
     public int getImageResource() {
         return imageResource;
+    }
+
+    public int getImageCircleResource() {
+        return imageCircleResource;
     }
 }

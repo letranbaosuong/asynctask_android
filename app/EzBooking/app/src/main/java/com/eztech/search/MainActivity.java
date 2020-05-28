@@ -158,49 +158,74 @@ public class MainActivity extends AppCompatActivity {
     private void AddToList() {
         String uri = "@drawable/room_1";
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(1, "Gulf Stream Cottages", "4101 Mayfair Street, Myrtle Beach, SC 29577, Mỹ", imageResource));
+        String uric = "@drawable/roomc_1";
+        int imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(1, "Gulf Stream Cottages", "4101 Mayfair Street, Myrtle Beach, SC 29577, Mỹ", imageResource,  imageCircleResource));
+
         uri = "@drawable/room_2";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(2, "ARory Hotel", "167 Đường 3/2 ,Phường 4 ,Đà Lạt, Việt Nam", imageResource));
+        uric = "@drawable/roomc_2";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(2, "ARory Hotel", "167 Đường 3/2 ,Phường 4 ,Đà Lạt, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_3";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(3, "The Art", "A31, Khu Quy Hoạch, Phan Đình Phùng, phường 2, Đà Lạt, Việt Nam", imageResource));
+        uric = "@drawable/roomc_3";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(3, "The Art", "A31, Khu Quy Hoạch, Phan Đình Phùng, phường 2, Đà Lạt, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_4";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(4, "Silent Night Dem Lanh Hotel", "05 Phạm Ngũ Lão, Quận 1, Đà Lạt, Việt Nam", imageResource));
+        uric = "@drawable/roomc_4";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(4, "Silent Night Dem Lanh Hotel", "05 Phạm Ngũ Lão, Quận 1, Đà Lạt, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_5";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(5, "Prince II Hotel", "42B Hàng Giấy, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource));
+        uric = "@drawable/roomc_5";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(5, "Prince II Hotel", "42B Hàng Giấy, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_6";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(6, "Hanoi Amber Hotel", "8/50 Đào Duy Từ, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource));
+        uric = "@drawable/roomc_6";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(6, "Hanoi Amber Hotel", "8/50 Đào Duy Từ, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_7";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(7, "Libra Hotel Residence", "44 Phố Dịch Vọng Hậu, Cầu Giấy, Hà Nội, Việt Nam", imageResource));
+        uric = "@drawable/roomc_7";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(7, "Libra Hotel Residence", "44 Phố Dịch Vọng Hậu, Cầu Giấy, Hà Nội, Việt Nam", imageResource,imageCircleResource));
 
         uri = "@drawable/room_8";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(8, "Marie Line Hotel", "283/43 Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh, Việt Nam", imageResource));
+        uric = "@drawable/roomc_8";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(8, "Marie Line Hotel", "283/43 Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_9";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(9, "Wyndham Dubai Marina", "P.O. Box: 215373, Al Seba Street,, Bến Du Thuyền Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource));
+        uric = "@drawable/roomc_9";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(9, "Wyndham Dubai Marina", "P.O. Box: 215373, Al Seba Street,, Bến Du Thuyền Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
 
         uri = "@drawable/room_10";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(10, "City Seasons Towers ", "Khalifa Bin Zayed Road, Mankhool, Dubai Next to Burjuman Mall , P.O.Box- 5847, Bur Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource));
+        uric = "@drawable/roomc_10";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(10, "City Seasons Towers ", "Khalifa Bin Zayed Road, Mankhool, Dubai Next to Burjuman Mall , P.O.Box- 5847, Bur Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
 
         uri = "@drawable/room_11";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(11, "Vista Hotel", "Abu Baker Al Siddique Road Al Muraqqabat, Deira, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource));
+        uric = "@drawable/roomc_11";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(11, "Vista Hotel", "Abu Baker Al Siddique Road Al Muraqqabat, Deira, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
 
         uri = "@drawable/room_12";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(12, "Aloft Palm Jumeirah", "East Crescent , Palm Jumeirah, Palm Jumeirah, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource));
+        uric = "@drawable/roomc_12";
+        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
+        listRooms.add(new Rooms(12, "Aloft Palm Jumeirah", "East Crescent , Palm Jumeirah, Palm Jumeirah, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
     }
 }
