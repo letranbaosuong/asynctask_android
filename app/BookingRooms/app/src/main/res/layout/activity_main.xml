@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <EditText
@@ -34,13 +35,35 @@
         app:srcCompat="@drawable/icon_search"
         tools:ignore="MissingConstraints,OnClick" />
 
+    <GridLayout
+        android:layout_width="409dp"
+        android:layout_height="640dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/white"
+        android:scrollbars="none"
+        android:stateListAnimator="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNhap"
+        tools:ignore="MissingConstraints">
+
+        <GridView
+            android:id="@+id/gridViewRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:scrollbars="none" />
+    </GridLayout>
+
     <ListView
         android:id="@+id/listViewSearch"
-        android:layout_width="376dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxHeight="100dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNhap" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
