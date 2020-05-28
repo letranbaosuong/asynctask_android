@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
         uric = "@drawable/roomc_2";
         imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(2, "ARory Hotel", "167 Đường 3/2 ,Phường 4 ,Đà Lạt, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(2, "ARory", "167 Đường 3/2 ,Phường 4 ,Đà Lạt, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_3";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
@@ -178,19 +178,19 @@ public class MainActivity extends AppCompatActivity {
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
         uric = "@drawable/roomc_4";
         imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(4, "Silent Night Dem Lanh Hotel", "05 Phạm Ngũ Lão, Quận 1, Đà Lạt, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(4, "Silent Night", "05 Phạm Ngũ Lão, Quận 1, Đà Lạt, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_5";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
         uric = "@drawable/roomc_5";
         imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(5, "Prince II Hotel", "42B Hàng Giấy, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(5, "Prince II", "42B Hàng Giấy, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_6";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
         uric = "@drawable/roomc_6";
         imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(6, "Hanoi Amber Hotel", "8/50 Đào Duy Từ, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(6, "Hanoi Amber", "8/50 Đào Duy Từ, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_7";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
         uric = "@drawable/roomc_8";
         imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(8, "Marie Line Hotel", "283/43 Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(8, "Marie Line", "283/43 Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh, Việt Nam", imageResource, imageCircleResource));
 
         uri = "@drawable/room_9";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
         uric = "@drawable/roomc_11";
         imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(11, "Vista Hotel", "Abu Baker Al Siddique Road Al Muraqqabat, Deira, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(11, "Vista", "Abu Baker Al Siddique Road Al Muraqqabat, Deira, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
 
         uri = "@drawable/room_12";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
