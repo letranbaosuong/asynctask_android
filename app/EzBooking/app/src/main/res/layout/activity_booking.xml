@@ -129,32 +129,57 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
-            android:textColor="@color/colorPrimary"
             android:id="@+id/editDateIn"
-            android:layout_width="254dp"
-            android:layout_height="41dp"
+            android:layout_width="205dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:editable="false"
             android:ems="10"
             android:fontFamily="@font/quicksand_regular"
             android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintStart_toEndOf="@+id/datein"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:textColor="@color/colorPrimary"
             android:id="@+id/editDateOut"
-            android:layout_width="256dp"
-            android:layout_height="43dp"
+            android:layout_width="204dp"
+            android:layout_height="39dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:editable="false"
             android:ems="10"
             android:fontFamily="@font/quicksand_regular"
             android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintStart_toEndOf="@+id/dateout"
             app:layout_constraintTop_toBottomOf="@+id/editDateIn" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDateIn"
+            android:layout_width="41dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/editDateIn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/datepicker" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDateOut"
+            android:layout_width="41dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="64dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/editDateIn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/datepicker" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
@@ -167,7 +192,7 @@
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:srcCompat="@drawable/dn" />
+        app:srcCompat="@drawable/dnd" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

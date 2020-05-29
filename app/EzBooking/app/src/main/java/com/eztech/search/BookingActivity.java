@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BookingActivity extends AppCompatActivity {
     ImageView img;
-    ImageButton imageButtonDat;
+    ImageButton imageButtonDat, imageButtonDateIn,imageButtonDateOut;
     TextView txtName, txtAddress, txtPrice, txtGia, txtTongGia;
     String value = "";
     Rooms r;
@@ -34,7 +34,6 @@ public class BookingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
         refactor();
         value =  Objects.requireNonNull(getIntent().getExtras()).getString("key_id");
-        //Toast.makeText(BookingActivity.this, "You Clicked at " + value, Toast.LENGTH_SHORT).show();
         assert value != null;
         r = findRoom(Integer.parseInt(value));
         assert r != null;
@@ -42,22 +41,30 @@ public class BookingActivity extends AppCompatActivity {
         txtName.setText(r.getName());
         txtAddress.setText("Địa chỉ: " + r.getAddress());
         txtPrice.setText("Giá: "+ Formatted.getFormatted(r.getPrice()) + "/đêm");
+        imageButtonDat.setEnabled(false);
         if(r.getEmptyRoom() == 0) {
-            editeDateOut.setEnabled(false);
-            editeDateIn.setEnabled(false);
+            imageButtonDateIn.setEnabled(false);
+            imageButtonDateOut.setEnabled(false);
             imageButtonDat.setEnabled(false);
             imageButtonDat.setImageResource(R.drawable.hp);
         }
-        editeDateIn.setOnClickListener(new View.OnClickListener() {
+        imageButtonDateIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDateDialog(editeDateIn);
             }
         });
-        editeDateOut.setOnClickListener(new View.OnClickListener() {
+        imageButtonDateOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDateDialog(editeDateOut);
+            }
+        });
+        imageButtonDat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BookingActivity.this, "Cảm ơn bạn đã đặt phòng", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
@@ -129,5 +136,7 @@ public class BookingActivity extends AppCompatActivity {
         txtGia = findViewById(R.id.gia);
         txtTongGia = findViewById(R.id.tongGia);
         imageButtonDat = findViewById(R.id.imageButtonDat);
+        imageButtonDateIn = findViewById(R.id.imageButtonDateIn);
+        imageButtonDateOut = findViewById(R.id.imageButtonDateOut);
     }
 }

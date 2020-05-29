@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         gridViewRoom = findViewById(R.id.gridViewRoom);
         adapterGridViewRooms = new AdapterGridViewRooms(listRooms);;
         gridViewRoom.setAdapter(adapterGridViewRooms);
-
         txtNhap.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
