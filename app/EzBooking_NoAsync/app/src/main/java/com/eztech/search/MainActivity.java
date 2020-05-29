@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         SearchRooms(txtNhap.getText().toString());
     }
 
+    //search rooms, address on search bar
     private void SearchAddress(String s) {
         try {
             Thread.sleep(300);
@@ -111,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     //search rooms
-
     private void SearchRooms(String s) {
         try {
             Thread.sleep(300);
@@ -120,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
         }
         if(txtNhap.getText().toString().equals("")) {
             adapterGridViewRooms = new AdapterGridViewRooms(listRooms);
-            gridViewRoom.setAdapter(adapterGridViewRooms);
         } else {
             listSearch = new ArrayList<>();
             if(txtNhap.getText().toString().matches("^(\\s|\\S)*(\\S)+(\\s|\\S)*$")) {
@@ -137,9 +136,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             adapterGridViewRooms = new AdapterGridViewRooms(listSearch);
-            gridViewRoom.setAdapter(adapterGridViewRooms);
-            txtNhap.setText("");
         }
+        gridViewRoom.setAdapter(adapterGridViewRooms);
     }
 
     //remove accent

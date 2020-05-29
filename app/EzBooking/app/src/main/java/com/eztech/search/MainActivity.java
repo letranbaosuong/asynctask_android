@@ -91,11 +91,11 @@ public class MainActivity extends AppCompatActivity {
     private class SearchAddress extends AsyncTask<String, Void, String>{
         @Override
         protected String doInBackground(String... strings) {
-//            try {
-//                Thread.sleep(300);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             listSearch = new ArrayList<>();
             if(strings[0].matches("^(\\s|\\S)*(\\S)+(\\s|\\S)*$")) {
                 for (int i = 0; i < listRooms.size(); i++) {
@@ -129,17 +129,10 @@ public class MainActivity extends AppCompatActivity {
     //search rooms
     @SuppressLint("StaticFieldLeak")
     private class SearchRooms extends AsyncTask<String, Void, String>{
-
         @Override
         protected String doInBackground(String... strings) {
-//            try {
-//                Thread.sleep(300);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
             if (strings[0].equals("")) {
                 adapterGridViewRooms = new AdapterGridViewRooms(listRooms);
-                gridViewRoom.setAdapter(adapterGridViewRooms);
             } else {
                 listSearch = new ArrayList<>();
                 if (strings[0].matches("^(\\s|\\S)*(\\S)+(\\s|\\S)*$")) {
@@ -155,8 +148,8 @@ public class MainActivity extends AppCompatActivity {
                             listSearch.add(r);
                     }
                 }
+                adapterGridViewRooms = new AdapterGridViewRooms(listSearch);
             }
-            adapterGridViewRooms = new AdapterGridViewRooms(listSearch);
             publishProgress();
             return strings[0];
         }
@@ -164,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Void... voids) {
                 gridViewRoom.setAdapter(adapterGridViewRooms);
-                txtNhap.setText("");
         }
 
         @Override
