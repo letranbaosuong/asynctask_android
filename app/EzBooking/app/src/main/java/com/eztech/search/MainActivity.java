@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.text.Normalizer;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,14 +32,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listRooms = new ArrayList<>();
-        AddToList();
-        listAdd = findViewById(R.id.listViewSearch);
-        txtNhap= findViewById(R.id.txtNhap);
-        gridViewRoom = findViewById(R.id.gridViewRoom);
-        adapterGridViewRooms = new AdapterGridViewRooms(listRooms);;
-        gridViewRoom.setAdapter(adapterGridViewRooms);
+        refactor();
+        initialization();
 
+        //events
         txtNhap.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -70,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    // get result back from booking activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -83,10 +82,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }//onActivityResult
+
+    //search room
     public void btnSearch_Clicked(View view) {
         new SearchRooms().execute(txtNhap.getText().toString());
     }
-    //SEARCH ADDRESS
+    //search rooms, address on search bar
     @SuppressLint("StaticFieldLeak")
     private class SearchAddress extends AsyncTask<String, String, String>{
         @Override
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //SEARCH ROOMS
+    //search rooms
     @SuppressLint("StaticFieldLeak")
     private class SearchRooms extends AsyncTask<String, String, String>{
         @Override
@@ -162,13 +163,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //remove accent
     public static String removeAccent(String s) {
-
         String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
         return pattern.matcher(temp).replaceAll("").replace('đ','d').replace('Đ','D');
     }
 
+    //refactor
+    private void refactor () {
+        listAdd = findViewById(R.id.listViewSearch);
+        txtNhap= findViewById(R.id.txtNhap);
+        gridViewRoom = findViewById(R.id.gridViewRoom);
+        adapterGridViewRooms = new AdapterGridViewRooms(listRooms);;
+        gridViewRoom.setAdapter(adapterGridViewRooms);
+    }
+
+    //initialization
+    @SuppressLint("SetTextI18n")
+    private void initialization() {
+        listRooms = new ArrayList<>();
+        AddToList();
+    }
+
+    //add items to list
     public void AddToList() {
         String uri = "@drawable/room_1";
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());

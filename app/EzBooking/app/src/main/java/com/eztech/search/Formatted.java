@@ -3,6 +3,8 @@ package com.eztech.search;
 import java.util.Locale;
 
 class Formatted {
+
+    // ex: 1000000 -> 1.000.000
     public static String getFormatted(int input) {
         StringBuilder formatted_value = new StringBuilder();
         boolean isNavigate = input < 0;
@@ -20,6 +22,7 @@ class Formatted {
         return String.format(Locale.getDefault(), "%s", formatted_value.toString());
     }
 
+    //ex:  1.000.000 -> 1000000
     public static Integer getSplit (String input) {
         StringBuilder output = new StringBuilder();
         if(input.contains(".")) {
@@ -33,6 +36,7 @@ class Formatted {
             return 0;
     }
 
+    // check string is integer or not
     public static boolean isInteger(String input) {
         try {
             Integer.parseInt( input );

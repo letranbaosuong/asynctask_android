@@ -25,30 +25,18 @@ public class BookingActivity extends AppCompatActivity {
     ImageView img;
     ImageButton imageButtonDat, imageButtonDateIn,imageButtonDateOut;
     TextView txtName, txtAddress, txtPrice, txtGia, txtTongGia;
-    String value = "";
+    String value;
     Rooms r;
     EditText editeDateIn, editeDateOut;
-    @SuppressLint("SetTextI18n")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
         refactor();
-        value =  Objects.requireNonNull(getIntent().getExtras()).getString("key_id");
-        assert value != null;
-        r = findRoom(Integer.parseInt(value));
-        assert r != null;
-        img.setBackgroundResource(r.getImageResource());
-        txtName.setText(r.getName());
-        txtAddress.setText("Địa chỉ: " + r.getAddress());
-        txtPrice.setText("Giá: "+ Formatted.getFormatted(r.getPrice()) + "/đêm");
-        imageButtonDat.setEnabled(false);
-        if(r.getEmptyRoom() == 0) {
-            imageButtonDateIn.setEnabled(false);
-            imageButtonDateOut.setEnabled(false);
-            imageButtonDat.setEnabled(false);
-            imageButtonDat.setImageResource(R.drawable.hp);
-        }
+        initialization();
+
+        //events
         imageButtonDateIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +62,7 @@ public class BookingActivity extends AppCompatActivity {
         });
     }
 
+    //show date dialog and set text edit text
     private void showDateDialog(final EditText date) {
         final Calendar calendar = Calendar.getInstance();
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -95,6 +84,7 @@ public class BookingActivity extends AppCompatActivity {
         new DatePickerDialog(BookingActivity.this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
+    // compare two dates
     @SuppressLint("SetTextI18n")
     private void compareDate () throws ParseException {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -107,16 +97,17 @@ public class BookingActivity extends AppCompatActivity {
             imageButtonDat.setImageResource(R.drawable.dn);
             long diff = strDateOut.getTime() - strDateIn.getTime();
             txtGia.setText("Giá "+ TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + " đêm" );
-            int tong = (int) r.getPrice() * (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+            int tong = r.getPrice() * (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
             txtTongGia.setText(Formatted.getFormatted(tong)+"đ");
-        } else
-        {
+        } else {
             imageButtonDat.setEnabled(false);
             imageButtonDat.setImageResource(R.drawable.dnd);
             txtGia.setText("Giá 0 đêm" );
             txtTongGia.setText("0đ");
         }
     }
+
+    //find rooms
     private Rooms findRoom(int id) {
         boolean existed = false;
         int index = 0;
@@ -131,6 +122,8 @@ public class BookingActivity extends AppCompatActivity {
             return MainActivity.listRooms.get(index);
         else return null;
     }
+
+    //refactor
     private void refactor () {
         img = findViewById(R.id.imageViewBooking);
         txtName = findViewById(R.id.name);
@@ -143,5 +136,26 @@ public class BookingActivity extends AppCompatActivity {
         imageButtonDat = findViewById(R.id.imageButtonDat);
         imageButtonDateIn = findViewById(R.id.imageButtonDateIn);
         imageButtonDateOut = findViewById(R.id.imageButtonDateOut);
+    }
+
+    //initialization
+    @SuppressLint("SetTextI18n")
+    private void initialization() {
+        value =  Objects.requireNonNull(getIntent().getExtras()).getString("key_id");
+        assert value != null;
+        r = findRoom(Integer.parseInt(value));
+        assert r != null;
+        img.setBackgroundResource(r.getImageResource());
+        txtName.setText(r.getName());
+        txtAddress.setText("Địa chỉ: " + r.getAddress());
+        txtPrice.setText("Giá: "+ Formatted.getFormatted(r.getPrice()) + "/đêm");
+        imageButtonDat.setEnabled(false);
+
+        if(r.getEmptyRoom() == 0) {
+            imageButtonDateIn.setEnabled(false);
+            imageButtonDateOut.setEnabled(false);
+            imageButtonDat.setEnabled(false);
+            imageButtonDat.setImageResource(R.drawable.hp);
+        }
     }
 }
