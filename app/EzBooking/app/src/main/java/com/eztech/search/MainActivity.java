@@ -97,12 +97,6 @@ public class MainActivity extends AppCompatActivity {
                     String name = removeAccent(r.getName().toLowerCase());
                     String address = removeAccent(r.getAddress().toLowerCase());
                     String string = removeAccent(strings[0].toLowerCase());
-                    try {
-                        // code có thể ném ra ngoại lệ
-                        string = "" + Formatted.getSplit(strings[0]);
-                    } catch(ArithmeticException e) {
-                        // code xử lý ngoại lệ
-                    }
                     String price = "" + r.getPrice();
 //                    Toast.makeText(MainActivity.this,
 //                            name+"  //  "+ address + "  //  "+string, Toast.LENGTH_SHORT).show();

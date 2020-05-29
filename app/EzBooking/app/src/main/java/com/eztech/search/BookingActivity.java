@@ -8,19 +8,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class BookingActivity extends AppCompatActivity {
     ImageView img;
-    TextView txtName, txtAddress, txtPrice;
+    ImageButton imageButtonDat;
+    TextView txtName, txtAddress, txtPrice, txtGia, txtTongGia;
     String value = "";
     Rooms r;
-    EditText editDatein, editeDateOut;
+    EditText editeDateIn, editeDateOut;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +42,22 @@ public class BookingActivity extends AppCompatActivity {
         txtName.setText(r.getName());
         txtAddress.setText("Địa chỉ: " + r.getAddress());
         txtPrice.setText("Giá: "+ Formatted.getFormatted(r.getPrice()) + "/đêm");
-
-        editDatein.setOnClickListener(new View.OnClickListener() {
+        if(r.getEmptyRoom() == 0) {
+            editeDateOut.setEnabled(false);
+            editeDateIn.setEnabled(false);
+            imageButtonDat.setEnabled(false);
+            imageButtonDat.setImageResource(R.drawable.hp);
+        }
+        editeDateIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateDialog(editDatein);
+                showDateDialog(editeDateIn);
+            }
+        });
+        editeDateOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDateDialog(editeDateOut);
             }
         });
     }
@@ -56,11 +73,36 @@ public class BookingActivity extends AppCompatActivity {
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                 String strDate = formatter.format(calendar.getTime());
                 date.setText(strDate);
+                try {
+                    compareDate();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         };
         new DatePickerDialog(BookingActivity.this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
+    @SuppressLint("SetTextI18n")
+    private void compareDate () throws ParseException {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date strDateIn = sdf.parse(editeDateIn.getText().toString());
+        Date strDateOut = sdf.parse(editeDateOut.getText().toString());
+        assert strDateOut != null;
+        assert strDateIn != null;
+        if(strDateOut.after(strDateIn)) {
+            imageButtonDat.setEnabled(true);
+            long diff = strDateOut.getTime() - strDateIn.getTime();
+            txtGia.setText("Giá "+ TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + " đêm" );
+            int tong = (int) r.getPrice() * (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+            txtTongGia.setText(Formatted.getFormatted(tong)+"đ");
+        } else
+        {
+            imageButtonDat.setEnabled(false);
+            txtGia.setText("Giá 0 đêm" );
+            txtTongGia.setText("0đ");
+        }
+    }
     private Rooms findRoom(int id) {
         boolean existed = false;
         int index = 0;
@@ -81,7 +123,10 @@ public class BookingActivity extends AppCompatActivity {
         txtName = findViewById(R.id.name);
         txtAddress = findViewById(R.id.address);
         txtPrice = findViewById(R.id.txtPrice);
-        editDatein = findViewById(R.id.editDateIn);
+        editeDateIn = findViewById(R.id.editDateIn);
         editeDateOut = findViewById( (R.id.editDateOut));
+        txtGia = findViewById(R.id.gia);
+        txtTongGia = findViewById(R.id.tongGia);
+        imageButtonDat = findViewById(R.id.imageButtonDat);
     }
 }

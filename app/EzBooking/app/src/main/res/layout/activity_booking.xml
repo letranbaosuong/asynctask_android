@@ -13,7 +13,8 @@
         android:layout_height="268dp"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/todo" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -55,6 +56,7 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="409dp"
         android:layout_height="171dp"
         android:layout_marginTop="4dp"
@@ -88,32 +90,84 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datein" />
 
+        <TextView
+            android:id="@+id/gia"
+            android:layout_width="99dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="76dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/gi_0_m"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datein" />
+
+        <TextView
+            android:id="@+id/tongGia"
+            android:textAlignment="textEnd"
+            android:layout_width="247dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="76dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/_0d"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datein" />
+
+        <View
+            style="@style/Divider"
+            android:layout_width="363dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
         <EditText
-            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
             android:id="@+id/editDateIn"
             android:layout_width="254dp"
             android:layout_height="41dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:ems="10"
             android:editable="false"
+            android:ems="10"
             android:fontFamily="@font/quicksand_regular"
+            android:textAlignment="center"
             app:layout_constraintStart_toEndOf="@+id/datein"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
             android:id="@+id/editDateOut"
             android:layout_width="256dp"
             android:layout_height="43dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:fontFamily="@font/quicksand_regular"
-            android:ems="10"
             android:editable="false"
+            android:ems="10"
+            android:fontFamily="@font/quicksand_regular"
+            android:textAlignment="center"
             app:layout_constraintStart_toEndOf="@+id/dateout"
             app:layout_constraintTop_toBottomOf="@+id/editDateIn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/imageButtonDat"
+        android:layout_width="162dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/dn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

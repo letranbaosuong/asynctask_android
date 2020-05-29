@@ -7,4 +7,6 @@
     <string name="name">Name</string>
     <string name="datein">Ngày đến</string>
     <string name="dateout">Ngày đi</string>
+    <string name="gi_0_m">Giá 0 đêm</string>
+    <string name="_0d">0đ</string>
 </resources>
