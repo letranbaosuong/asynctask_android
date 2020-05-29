@@ -51,6 +51,11 @@ public class AdapterGridViewRooms extends BaseAdapter {
         ((TextView) viewRooms.findViewById(R.id.name)).setText(rooms.getName());
         ((ImageView) viewRooms.findViewById(R.id.imageView)).setBackgroundResource(rooms.getImageResource());
         ((TextView)viewRooms.findViewById(R.id.txtPrice)).setText("Giá: "+ Formatted.getFormatted(rooms.getPrice()) + "/đêm");
+        if(rooms.getEmptyRoom() > 0) {
+            ((TextView) viewRooms.findViewById(R.id.txtEmptyRoom)).setText("Còn "+ rooms.getEmptyRoom() + " phòng");
+        } else {
+            ((TextView) viewRooms.findViewById(R.id.txtEmptyRoom)).setText("Hết phòng");
+        }
         return viewRooms;
     }
 }

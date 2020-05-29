@@ -38,4 +38,8 @@ class Rooms {
     public int getEmptyRoom() {
         return emptyRoom;
     }
+
+    public void setEmptyRoom(int emptyRoom) {
+        this.emptyRoom = emptyRoom;
+    }
 }

@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ListView listAdd;
     EditText txtNhap;
     GridView gridViewRoom;
+    int LAUNCH_SECOND_ACTIVITY = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         gridViewRoom = findViewById(R.id.gridViewRoom);
         adapterGridViewRooms = new AdapterGridViewRooms(listRooms);;
         gridViewRoom.setAdapter(adapterGridViewRooms);
+
         txtNhap.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(MainActivity.this, "You Clicked at " + id, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, BookingActivity.class);
                 intent.putExtra("key_id", "" + id);
-                startActivity(intent);
+                startActivityForResult(intent, LAUNCH_SECOND_ACTIVITY);
             }
         });
 
@@ -68,11 +70,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == LAUNCH_SECOND_ACTIVITY) {
+            if(resultCode == MainActivity.RESULT_OK){
+                txtNhap.setText("");
+                new SearchRooms().execute(txtNhap.getText().toString());
+                //String result = data.getStringExtra("result");
+                //Toast.makeText(MainActivity.this, "Result is " + result, Toast.LENGTH_SHORT).show();
+            }
+            if (resultCode == MainActivity.RESULT_CANCELED) {
+                //Write your code if there's no result
+                //Toast.makeText(MainActivity.this, "fail", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }//onActivityResult
     public void btnSearch_Clicked(View view) {
         new SearchRooms().execute(txtNhap.getText().toString());
     }
-
     //SEARCH ADDRESS
     @SuppressLint("StaticFieldLeak")
     private class SearchAddress extends AsyncTask<String, String, String>{
@@ -156,18 +173,18 @@ public class MainActivity extends AppCompatActivity {
         return pattern.matcher(temp).replaceAll("").replace('đ','d').replace('Đ','D');
     }
 
-    private void AddToList() {
+    public void AddToList() {
         String uri = "@drawable/room_1";
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(1, "Gulf Stream Cottages", "4101 Mayfair Street, Myrtle Beach, SC 29577, Mỹ", imageResource, 4800000, 10 ));
+        listRooms.add(new Rooms(1, "Gulf Stream Cottages", "4101 Mayfair Street, Myrtle Beach, SC 29577, Mỹ", imageResource, 4800000, 1 ));
 
         uri = "@drawable/room_2";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(2, "ARory", "167 Đường 3/2 ,Phường 4 ,Đà Lạt, Việt Nam", imageResource, 800000, 10));
+        listRooms.add(new Rooms(2, "ARory", "167 Đường 3/2 ,Phường 4 ,Đà Lạt, Việt Nam", imageResource, 800000, 2));
 
         uri = "@drawable/room_3";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(3, "The Art", "A31, Khu Quy Hoạch, Phan Đình Phùng, phường 2, Đà Lạt, Việt Nam", imageResource, 1200000, 10));
+        listRooms.add(new Rooms(3, "The Art", "A31, Khu Quy Hoạch, Phan Đình Phùng, phường 2, Đà Lạt, Việt Nam", imageResource, 1200000, 3));
 
         uri = "@drawable/room_4";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
