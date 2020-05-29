@@ -92,6 +92,7 @@ public class BookingActivity extends AppCompatActivity {
         assert strDateIn != null;
         if(strDateOut.after(strDateIn)) {
             imageButtonDat.setEnabled(true);
+            imageButtonDat.setImageResource(R.drawable.dn);
             long diff = strDateOut.getTime() - strDateIn.getTime();
             txtGia.setText("Giá "+ TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + " đêm" );
             int tong = (int) r.getPrice() * (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
@@ -99,6 +100,7 @@ public class BookingActivity extends AppCompatActivity {
         } else
         {
             imageButtonDat.setEnabled(false);
+            imageButtonDat.setImageResource(R.drawable.dnd);
             txtGia.setText("Giá 0 đêm" );
             txtTongGia.setText("0đ");
         }
@@ -117,7 +119,6 @@ public class BookingActivity extends AppCompatActivity {
             return MainActivity.listRooms.get(index);
         else return null;
     }
-
     private void refactor () {
         img = findViewById(R.id.imageViewBooking);
         txtName = findViewById(R.id.name);
