@@ -1,17 +1,21 @@
 package com.eztech.search;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class BookingActivity extends AppCompatActivity {
     ImageView img;
-    TextView txtName, txtAddress;
+    TextView txtName, txtAddress, txtPrice;
     String value = "";
     Rooms r;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,7 @@ public class BookingActivity extends AppCompatActivity {
         img.setBackgroundResource(r.getImageResource());
         txtName.setText(r.getName());
         txtAddress.setText("Địa chỉ: " + r.getAddress());
+        txtPrice.setText("Giá: "+ Formatted.getFormatted(r.getPrice()) + "/đêm");
     }
 
     private Rooms findRoom(int id) {
@@ -46,5 +51,6 @@ public class BookingActivity extends AppCompatActivity {
         img = findViewById(R.id.imageViewBooking);
         txtName = findViewById(R.id.name);
         txtAddress = findViewById(R.id.address);
+        txtPrice = findViewById(R.id.txtPrice);
     }
 }

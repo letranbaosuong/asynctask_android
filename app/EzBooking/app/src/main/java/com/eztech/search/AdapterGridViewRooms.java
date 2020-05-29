@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class AdapterGridViewRooms extends BaseAdapter {
     //Dữ liệu liên kết bởi Adapter là một mảng các sản phẩm
@@ -47,7 +49,8 @@ public class AdapterGridViewRooms extends BaseAdapter {
         //Bind sữ liệu phần tử vào View
         Rooms rooms = (Rooms) getItem(position);
         ((TextView) viewRooms.findViewById(R.id.name)).setText(rooms.getName());
-        viewRooms.findViewById(R.id.imageView).setBackgroundResource(rooms.getImageResource());
+        ((ImageView) viewRooms.findViewById(R.id.imageView)).setBackgroundResource(rooms.getImageResource());
+        ((TextView)viewRooms.findViewById(R.id.txtPrice)).setText("Giá: "+ Formatted.getFormatted(rooms.getPrice()) + "/đêm");
         return viewRooms;
     }
 }

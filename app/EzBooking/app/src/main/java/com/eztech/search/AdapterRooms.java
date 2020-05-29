@@ -4,9 +4,12 @@ import android.annotation.SuppressLint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterRooms extends BaseAdapter {
     //Dữ liệu liên kết bởi Adapter là một mảng các sản phẩm
@@ -47,8 +50,8 @@ public class AdapterRooms extends BaseAdapter {
         Rooms rooms = (Rooms) getItem(position);
         ((TextView) viewRooms.findViewById(R.id.name)).setText(rooms.getName());
         ((TextView) viewRooms.findViewById(R.id.address)).setText(rooms.getAddress());
-
-        viewRooms.findViewById(R.id.imageView).setBackgroundResource(rooms.getImageCircleResource());
+        ((CircleImageView) viewRooms.findViewById(R.id.imageView)).setImageResource(rooms.getImageResource());
+        ((TextView)viewRooms.findViewById(R.id.price)).setText(Formatted.getFormatted(rooms.getPrice()) + "/đêm");
         return viewRooms;
     }
 }

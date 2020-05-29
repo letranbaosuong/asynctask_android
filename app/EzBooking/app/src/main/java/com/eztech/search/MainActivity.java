@@ -97,9 +97,16 @@ public class MainActivity extends AppCompatActivity {
                     String name = removeAccent(r.getName().toLowerCase());
                     String address = removeAccent(r.getAddress().toLowerCase());
                     String string = removeAccent(strings[0].toLowerCase());
+                    try {
+                        // code có thể ném ra ngoại lệ
+                        string = "" + Formatted.getSplit(strings[0]);
+                    } catch(ArithmeticException e) {
+                        // code xử lý ngoại lệ
+                    }
+                    String price = "" + r.getPrice();
 //                    Toast.makeText(MainActivity.this,
 //                            name+"  //  "+ address + "  //  "+string, Toast.LENGTH_SHORT).show();
-                    if (name.contains(string) || address.contains(string))
+                    if (name.contains(string) || address.contains(string) || price.contains(string))
                         listSearch.add(r);
                 }
             }
@@ -158,74 +165,50 @@ public class MainActivity extends AppCompatActivity {
     private void AddToList() {
         String uri = "@drawable/room_1";
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        String uric = "@drawable/roomc_1";
-        int imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(1, "Gulf Stream Cottages", "4101 Mayfair Street, Myrtle Beach, SC 29577, Mỹ", imageResource,  imageCircleResource));
+        listRooms.add(new Rooms(1, "Gulf Stream Cottages", "4101 Mayfair Street, Myrtle Beach, SC 29577, Mỹ", imageResource, 4800000, 10 ));
 
         uri = "@drawable/room_2";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_2";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(2, "ARory", "167 Đường 3/2 ,Phường 4 ,Đà Lạt, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(2, "ARory", "167 Đường 3/2 ,Phường 4 ,Đà Lạt, Việt Nam", imageResource, 800000, 10));
 
         uri = "@drawable/room_3";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_3";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(3, "The Art", "A31, Khu Quy Hoạch, Phan Đình Phùng, phường 2, Đà Lạt, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(3, "The Art", "A31, Khu Quy Hoạch, Phan Đình Phùng, phường 2, Đà Lạt, Việt Nam", imageResource, 1200000, 10));
 
         uri = "@drawable/room_4";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_4";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(4, "Silent Night", "05 Phạm Ngũ Lão, Quận 1, Đà Lạt, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(4, "Silent Night", "05 Phạm Ngũ Lão, Quận 1, Đà Lạt, Việt Nam", imageResource, 1300000, 10));
 
         uri = "@drawable/room_5";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_5";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(5, "Prince II", "42B Hàng Giấy, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(5, "Prince II", "42B Hàng Giấy, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, 1500000, 10));
 
         uri = "@drawable/room_6";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_6";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(6, "Hanoi Amber", "8/50 Đào Duy Từ, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(6, "Hanoi Amber", "8/50 Đào Duy Từ, Quận Hoàn Kiếm, Hà Nội, Việt Nam", imageResource, 900000, 10));
 
         uri = "@drawable/room_7";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_7";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(7, "Libra Hotel Residence", "44 Phố Dịch Vọng Hậu, Cầu Giấy, Hà Nội, Việt Nam", imageResource,imageCircleResource));
+        listRooms.add(new Rooms(7, "Libra Hotel Residence", "44 Phố Dịch Vọng Hậu, Cầu Giấy, Hà Nội, Việt Nam", imageResource, 900000, 10));
 
         uri = "@drawable/room_8";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_8";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(8, "Marie Line", "283/43 Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh, Việt Nam", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(8, "Marie Line", "283/43 Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh, Việt Nam", imageResource, 750000, 10));
 
         uri = "@drawable/room_9";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_9";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(9, "Wyndham Dubai Marina", "P.O. Box: 215373, Al Seba Street,, Bến Du Thuyền Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(9, "Wyndham Dubai Marina", "P.O. Box: 215373, Al Seba Street,, Bến Du Thuyền Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 1200000, 0));
 
         uri = "@drawable/room_10";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_10";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(10, "City Seasons Towers ", "Khalifa Bin Zayed Road, Mankhool, Dubai Next to Burjuman Mall , P.O.Box- 5847, Bur Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(10, "City Seasons Towers ", "Khalifa Bin Zayed Road, Mankhool, Dubai Next to Burjuman Mall , P.O.Box- 5847, Bur Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 7200000, 0));
 
         uri = "@drawable/room_11";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_11";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(11, "Vista", "Abu Baker Al Siddique Road Al Muraqqabat, Deira, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(11, "Vista", "Abu Baker Al Siddique Road Al Muraqqabat, Deira, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 2000000, 1));
 
         uri = "@drawable/room_12";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        uric = "@drawable/roomc_12";
-        imageCircleResource = getResources().getIdentifier(uric, null, getPackageName());
-        listRooms.add(new Rooms(12, "Aloft Palm Jumeirah", "East Crescent , Palm Jumeirah, Palm Jumeirah, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, imageCircleResource));
+        listRooms.add(new Rooms(12, "Aloft Palm Jumeirah", "East Crescent , Palm Jumeirah, Palm Jumeirah, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 4500000, 0));
     }
 }

@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="268dp"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
@@ -27,16 +28,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_bold"
-            android:text=""
+            android:text="@string/name"
             android:textSize="30sp"
+            android:textColor="@color/pink"
             android:textStyle="bold" />
-
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@string/price"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
         <TextView
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_medium"
-            android:text=""
-            android:textSize="20sp" />
+            android:fontFamily="@font/quicksand_regular"
+            android:text="@string/address"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
