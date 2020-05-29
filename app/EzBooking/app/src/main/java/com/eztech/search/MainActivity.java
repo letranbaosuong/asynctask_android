@@ -76,14 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == LAUNCH_SECOND_ACTIVITY) {
             if(resultCode == MainActivity.RESULT_OK){
-                txtNhap.setText("");
-                new SearchRooms().execute(txtNhap.getText().toString());
-                //String result = data.getStringExtra("result");
-                //Toast.makeText(MainActivity.this, "Result is " + result, Toast.LENGTH_SHORT).show();
+                new SearchRooms().execute("");
             }
             if (resultCode == MainActivity.RESULT_CANCELED) {
                 //Write your code if there's no result
-                //Toast.makeText(MainActivity.this, "fail", Toast.LENGTH_SHORT).show();
             }
         }
     }//onActivityResult
@@ -208,18 +204,18 @@ public class MainActivity extends AppCompatActivity {
 
         uri = "@drawable/room_9";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(9, "Wyndham Dubai Marina", "P.O. Box: 215373, Al Seba Street,, Bến Du Thuyền Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 1200000, 0));
+        listRooms.add(new Rooms(9, "Wyndham Dubai Marina", "P.O. Box: 215373, Al Seba Street,, Bến Du Thuyền Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 1200000, 5));
 
         uri = "@drawable/room_10";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(10, "City Seasons Towers ", "Khalifa Bin Zayed Road, Mankhool, Dubai Next to Burjuman Mall , P.O.Box- 5847, Bur Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 7200000, 0));
+        listRooms.add(new Rooms(10, "City Seasons Towers ", "Khalifa Bin Zayed Road, Mankhool, Dubai Next to Burjuman Mall , P.O.Box- 5847, Bur Dubai, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 7200000, 5));
 
         uri = "@drawable/room_11";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(11, "Vista", "Abu Baker Al Siddique Road Al Muraqqabat, Deira, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 2000000, 1));
+        listRooms.add(new Rooms(11, "Vista", "Abu Baker Al Siddique Road Al Muraqqabat, Deira, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 2000000, 5));
 
         uri = "@drawable/room_12";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(12, "Aloft Palm Jumeirah", "East Crescent , Palm Jumeirah, Palm Jumeirah, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 4500000, 0));
+        listRooms.add(new Rooms(12, "Aloft Palm Jumeirah", "East Crescent , Palm Jumeirah, Palm Jumeirah, Dubai, United Arab Emirates (Các Tiểu Vương Quốc Ả Rập Thống Nhất)", imageResource, 4500000, 5));
     }
 }
