@@ -5,4 +5,6 @@
     <string name="price">Price</string>
     <string name="address">Address</string>
     <string name="name">Name</string>
+    <string name="datein">Ngày đến</string>
+    <string name="dateout">Ngày đi</string>
 </resources>

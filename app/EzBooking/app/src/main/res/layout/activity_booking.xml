@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BookingActivity">
@@ -15,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -29,9 +31,10 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_bold"
             android:text="@string/name"
-            android:textSize="30sp"
             android:textColor="@color/pink"
+            android:textSize="30sp"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/txtPrice"
             android:layout_width="match_parent"
@@ -40,6 +43,7 @@
             android:text="@string/price"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp" />
+
         <TextView
             android:id="@+id/address"
             android:layout_width="match_parent"
@@ -49,4 +53,67 @@
             android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="409dp"
+        android:layout_height="171dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/datein"
+            android:layout_width="99dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/quicksand_regular"
+            android:text="@string/datein"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dateout"
+            android:layout_width="99dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/quicksand_regular"
+            android:text="@string/dateout"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datein" />
+
+        <EditText
+            android:textAlignment="center"
+            android:id="@+id/editDateIn"
+            android:layout_width="254dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:editable="false"
+            android:fontFamily="@font/quicksand_regular"
+            app:layout_constraintStart_toEndOf="@+id/datein"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:textAlignment="center"
+            android:id="@+id/editDateOut"
+            android:layout_width="256dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/quicksand_regular"
+            android:ems="10"
+            android:editable="false"
+            app:layout_constraintStart_toEndOf="@+id/dateout"
+            app:layout_constraintTop_toBottomOf="@+id/editDateIn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

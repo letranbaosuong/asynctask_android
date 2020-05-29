@@ -3,11 +3,16 @@ package com.eztech.search;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Locale;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class BookingActivity extends AppCompatActivity {
@@ -15,6 +20,7 @@ public class BookingActivity extends AppCompatActivity {
     TextView txtName, txtAddress, txtPrice;
     String value = "";
     Rooms r;
+    EditText editDatein, editeDateOut;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,29 @@ public class BookingActivity extends AppCompatActivity {
         txtName.setText(r.getName());
         txtAddress.setText("Địa chỉ: " + r.getAddress());
         txtPrice.setText("Giá: "+ Formatted.getFormatted(r.getPrice()) + "/đêm");
+
+        editDatein.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDateDialog(editDatein);
+            }
+        });
+    }
+
+    private void showDateDialog(final EditText date) {
+        final Calendar calendar = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                String strDate = formatter.format(calendar.getTime());
+                date.setText(strDate);
+            }
+        };
+        new DatePickerDialog(BookingActivity.this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
     private Rooms findRoom(int id) {
@@ -52,5 +81,7 @@ public class BookingActivity extends AppCompatActivity {
         txtName = findViewById(R.id.name);
         txtAddress = findViewById(R.id.address);
         txtPrice = findViewById(R.id.txtPrice);
+        editDatein = findViewById(R.id.editDateIn);
+        editeDateOut = findViewById( (R.id.editDateOut));
     }
 }
