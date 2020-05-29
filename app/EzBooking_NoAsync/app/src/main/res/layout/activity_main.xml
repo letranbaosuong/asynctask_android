@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txtNhap"
+        android:layout_width="347dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="@font/quicksand_regular"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <ImageButton
+        android:id="@+id/imgBtnSearch"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/search"
+        android:onClick="btnSearch_Clicked"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toEndOf="@+id/txtNhap"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_search"
+        tools:ignore="MissingConstraints,OnClick" />
+
+    <GridLayout
+        android:layout_width="409dp"
+        android:layout_height="640dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/white"
+        android:scrollbars="none"
+        android:stateListAnimator="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNhap"
+        tools:ignore="MissingConstraints">
+
+        <GridView
+            android:id="@+id/gridViewRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:scrollbars="none" />
+    </GridLayout>
+
+    <ListView
+        android:id="@+id/listViewSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:paddingVertical="5dp"
+        android:background="@color/white"
+        android:paddingHorizontal="10dp"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

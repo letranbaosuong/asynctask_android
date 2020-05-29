@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookingActivity">
+
+    <ImageView
+        android:id="@+id/imageViewBooking"
+        android:layout_width="match_parent"
+        android:layout_height="268dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/todo" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBooking">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/name"
+            android:textColor="@color/pink"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@string/price"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_regular"
+            android:text="@string/address"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="409dp"
+        android:layout_height="171dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/datein"
+            android:layout_width="99dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/quicksand_regular"
+            android:text="@string/datein"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dateout"
+            android:layout_width="99dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/quicksand_regular"
+            android:text="@string/dateout"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datein" />
+
+        <TextView
+            android:id="@+id/gia"
+            android:layout_width="99dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="76dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/gi_0_m"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datein" />
+
+        <TextView
+            android:id="@+id/tongGia"
+            android:textAlignment="textEnd"
+            android:layout_width="247dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="76dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/_0d"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datein" />
+
+        <View
+            style="@style/Divider"
+            android:layout_width="363dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editDateIn"
+            android:layout_width="205dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:editable="false"
+            android:ems="10"
+            android:fontFamily="@font/quicksand_regular"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/datein"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editDateOut"
+            android:layout_width="204dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:editable="false"
+            android:ems="10"
+            android:fontFamily="@font/quicksand_regular"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/dateout"
+            app:layout_constraintTop_toBottomOf="@+id/editDateIn" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDateIn"
+            android:layout_width="41dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/editDateIn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/datepicker" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDateOut"
+            android:layout_width="41dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="64dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/editDateIn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/datepicker" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/imageButtonDat"
+        android:layout_width="162dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/dnd" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
