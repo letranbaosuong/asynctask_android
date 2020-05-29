@@ -135,9 +135,10 @@ public class MainActivity extends AppCompatActivity {
                         String name = removeAccent(r.getName().toLowerCase());
                         String address = removeAccent(r.getAddress().toLowerCase());
                         String string = removeAccent(strings[0].toLowerCase());
+                        String price = "" + r.getPrice();
 //                    Toast.makeText(MainActivity.this,
 //                            name+"  //  "+ address + "  //  "+string, Toast.LENGTH_SHORT).show();
-                        if (name.contains(string) || address.contains(string))
+                        if (name.contains(string) || address.contains(string) || price.contains(string))
                             listSearch.add(r);
                     }
                 }
