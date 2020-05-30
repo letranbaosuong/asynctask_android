@@ -87,11 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
     //search rooms, address on search bar
     private void SearchAddress(String s) {
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(300);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         listSearch = new ArrayList<>();
         if(txtNhap.getText().toString().matches("^(\\s|\\S)*(\\S)+(\\s|\\S)*$")) {
             for (int i = 0; i < listRooms.size(); i++) {
@@ -113,11 +113,11 @@ public class MainActivity extends AppCompatActivity {
 
     //search rooms
     private void SearchRooms(String s) {
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(300);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         if(txtNhap.getText().toString().equals("")) {
             adapterGridViewRooms = new AdapterGridViewRooms(listRooms);
         } else {
