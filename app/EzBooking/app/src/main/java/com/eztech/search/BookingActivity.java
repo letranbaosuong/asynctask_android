@@ -27,7 +27,7 @@ public class BookingActivity extends AppCompatActivity {
     TextView txtName, txtAddress, txtPrice, txtGia, txtTongGia;
     String value;
     Rooms r;
-    EditText editeDateIn, editeDateOut;
+    EditText editDateIn, editDateOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +40,13 @@ public class BookingActivity extends AppCompatActivity {
         imageButtonDateIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateDialog(editeDateIn);
+                showDateDialog(editDateIn);
             }
         });
         imageButtonDateOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateDialog(editeDateOut);
+                showDateDialog(editDateOut);
             }
         });
         imageButtonDat.setOnClickListener(new View.OnClickListener() {
@@ -88,11 +88,12 @@ public class BookingActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void compareDate () throws ParseException {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date strDateIn = sdf.parse(editeDateIn.getText().toString());
-        Date strDateOut = sdf.parse(editeDateOut.getText().toString());
+        Date strDateIn = sdf.parse(editDateIn.getText().toString());
+        Date strDateOut = sdf.parse(editDateOut.getText().toString());
+        Date strDateNow = sdf.parse(sdf.format(new Date()));
         assert strDateOut != null;
         assert strDateIn != null;
-        if(strDateOut.after(strDateIn)) {
+        if(strDateOut.after(strDateIn) && ((strDateIn.after(strDateNow) || strDateIn.equals(strDateNow)))) {
             imageButtonDat.setEnabled(true);
             imageButtonDat.setImageResource(R.drawable.dn);
             long diff = strDateOut.getTime() - strDateIn.getTime();
@@ -129,8 +130,8 @@ public class BookingActivity extends AppCompatActivity {
         txtName = findViewById(R.id.name);
         txtAddress = findViewById(R.id.address);
         txtPrice = findViewById(R.id.txtPrice);
-        editeDateIn = findViewById(R.id.editDateIn);
-        editeDateOut = findViewById( (R.id.editDateOut));
+        editDateIn = findViewById(R.id.editDateIn);
+        editDateOut = findViewById( (R.id.editDateOut));
         txtGia = findViewById(R.id.gia);
         txtTongGia = findViewById(R.id.tongGia);
         imageButtonDat = findViewById(R.id.imageButtonDat);
