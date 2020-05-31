@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class AdapterGridViewRooms extends BaseAdapter {
-    //Dữ liệu liên kết bởi Adapter là một mảng các sản phẩm
+    //Dữ liệu liên kết bởi Adapter là một mảng
     private final ArrayList<Rooms> listRooms;
     AdapterGridViewRooms(ArrayList<Rooms> listRooms) {
         this.listRooms = listRooms;
@@ -19,6 +19,7 @@ public class AdapterGridViewRooms extends BaseAdapter {
 
     @Override
     public int getCount() {
+        //Trả về độ dài của mảng
         return listRooms.size();
     }
 
@@ -31,7 +32,7 @@ public class AdapterGridViewRooms extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        //Trả về một ID của phần
+        //Trả về một ID liên quan đến phần tử ở vị trí position
         return listRooms.get(position).getId();
     }
 
@@ -41,6 +42,7 @@ public class AdapterGridViewRooms extends BaseAdapter {
         //convertView là View của phần tử ListView, nếu convertView != null nghĩa là
         //View này được sử dụng lại, chỉ việc cập nhật nội dung mới
         //Nếu null cần tạo mới
+        //Có thể nạp từ layout bằng View.inflate
         View viewRooms;
         if (convertView == null) {
             viewRooms = View.inflate(parent.getContext(), R.layout.rooms_view, null);
@@ -48,8 +50,8 @@ public class AdapterGridViewRooms extends BaseAdapter {
 
         //Bind sữ liệu phần tử vào View
         Rooms rooms = (Rooms) getItem(position);
-        ((TextView) viewRooms.findViewById(R.id.name)).setText(rooms.getName());
         ((ImageView) viewRooms.findViewById(R.id.imageView)).setBackgroundResource(rooms.getImageResource());
+        ((TextView) viewRooms.findViewById(R.id.name)).setText(rooms.getName());
         ((TextView)viewRooms.findViewById(R.id.txtPrice)).setText("Giá: "+ Formatted.getFormatted(rooms.getPrice()) + "/đêm");
         if(rooms.getEmptyRoom() > 0) {
             ((TextView) viewRooms.findViewById(R.id.txtEmptyRoom)).setText("Còn "+ rooms.getEmptyRoom() + " phòng");

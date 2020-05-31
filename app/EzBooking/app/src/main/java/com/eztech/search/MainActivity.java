@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initialization();
         refactor();
+        initialization();
 
         //events
         txtNhap.addTextChangedListener(new TextWatcher() {
@@ -176,14 +176,11 @@ public class MainActivity extends AppCompatActivity {
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
         return pattern.matcher(temp).replaceAll("").replace('đ','d').replace('Đ','D');
     }
-
     //refactor
     private void refactor () {
         listAdd = findViewById(R.id.listViewSearch);
         txtNhap= findViewById(R.id.txtNhap);
         gridViewRoom = findViewById(R.id.gridViewRoom);
-        adapterGridViewRooms = new AdapterGridViewRooms(listRooms);;
-        gridViewRoom.setAdapter(adapterGridViewRooms);
     }
 
     //initialization
@@ -191,6 +188,8 @@ public class MainActivity extends AppCompatActivity {
     private void initialization() {
         listRooms = new ArrayList<>();
         AddToList();
+        adapterGridViewRooms = new AdapterGridViewRooms(listRooms);;
+        gridViewRoom.setAdapter(adapterGridViewRooms);
     }
 
     //add items to list
