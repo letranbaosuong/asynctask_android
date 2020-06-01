@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
         uri = "@drawable/room_9";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        listRooms.add(new Rooms(9, "Wyndham Dubai Marina", "P.O. Box: 215373, Al Seba Street,, Bến Du Thuyền Dubai, Dubai, United Arab Emirates (Các Tiểu)", imageResource, 1200000, 5));
+        listRooms.add(new Rooms(9, "Wyndham Dubai Marina", "P.O. Box: 215373, Al Seba Street,, Bến Du Thuyền Dubai, Dubai, United Arab Emirates (Các Tiểu)",  imageResource, 1200000, 5));
 
         uri = "@drawable/room_10";
         imageResource = getResources().getIdentifier(uri, null, getPackageName());
