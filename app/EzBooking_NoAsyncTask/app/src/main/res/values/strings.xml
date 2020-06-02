@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Ez No AsyncTask</string>
+    <string name="search">Search</string>
+    <string name="todo">TODO</string>
+    <string name="price">Price</string>
+    <string name="address">Address</string>
+    <string name="name">Name</string>
+    <string name="datein">Ngày đến</string>
+    <string name="dateout">Ngày đi</string>
+    <string name="gi_0_m">Giá 0 đêm</string>
+    <string name="_0d">0đ</string>
+    <string name="emptyRoom">Empty Room</string>
+</resources>
